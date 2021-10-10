@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<th:block th:insert="fragments/header"/>
+<h1 class="box-header__title">Travel Planner</h1>
+
+<div class="form">
+    <div class="form__wrapper">
+        <form method="post" th:action="@{../trips/add}" th:object="${trip}">
+            <div class="form__input-group">
+                <label class="form__label" th:name="city" th:text="City"/>
+                <input class="form__text" th:name="city" th:value="${trip.city}"/>
+                <div>
+                    <div class="form__error" th:errors="*{city}"
+                         th:if="${#fields.hasErrors('city')}"
+                         th:name="date"></div>
+                </div>
+            </div>
+            <div class="form__input-group">
+                <label class="form__label" th:name="date" th:text="Date"/>
+                <input class="form__text" th:name="date" th:type="date" th:value="${trip.date}"/>
+                <div>
+                    <div class="form__error" th:errors="*{date}"
+                         th:if="${#fields.hasErrors('date')}"
+                         th:name="date"></div>
+                </div>
+            </div>
+
+            <input class="form__submit" th:value="Submit" type="submit"/>
+        </form>
+    </div>
+</div>
+
+<div class="table">
+    <div class="table__heading">
+        <div class="table__row">
+            <div class="table__cell table__cell_head">#</div>
+            <div class="table__cell table__cell_head">City Name</div>
+            <div class="table__cell table__cell_head">Country Code</div>
+            <div class="table__cell table__cell_head">Temperature</div>
+            <div class="table__cell table__cell_head">Clouds</div>
+        </div>
+    </div>
+    <div class="table__body">
+        <th:block th:each="forecast, it : ${forecasts}">
+            <div class="table__row">
+                <div class="table__cell" th:text="${it.count}"/>
+                <div class="table__cell" th:text="${forecast.city}"/>
+                <div class="table__cell" th:text="${forecast.country}"/>
+                <div class="table__cell" th:text="${forecast.temp}"/>
+                <div class="table__cell" th:text="${forecast.clouds}"/>
+            </div>
+        </th:block>
+    </div>
+</div>
+<div/>
+<div/>
+<th:block th:insert="fragments/footer"/>
+</html>
