@@ -54,6 +54,36 @@
       <groupId>org.jsoup</groupId>
       <version>1.10.2</version>
     </dependency>
+
+    <dependency>
+      <artifactId>wiremock-jre8</artifactId>
+      <groupId>com.github.tomakehurst</groupId>
+      <scope>test</scope>
+      <version>2.31.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>wiremock-jre8</artifactId>
+      <groupId>com.github.tomakehurst</groupId>
+      <scope>compile</scope>
+      <version>2.31.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>spring-boot-test</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>caffeine</artifactId>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+    </dependency>
+
   </dependencies>
   <description>Demo project for Spring Boot</description>
   <groupId>com.complexica.test</groupId>

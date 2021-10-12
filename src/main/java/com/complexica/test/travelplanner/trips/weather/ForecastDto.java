@@ -1,17 +1,22 @@
-package com.complexica.test.travelplanner.trips;
+package com.complexica.test.travelplanner.trips.weather;
+
+import java.time.LocalDateTime;
 
 public class ForecastDto {
 
   private final String city;
   private final String country;
-  private final int temp;
+  private final double temp;
   private final int clouds;
+  private final LocalDateTime dateTime;
 
-  private ForecastDto(String city, String country, int temp, int clouds) {
+  private ForecastDto(String city, String country, double temp, int clouds,
+      LocalDateTime dateTime) {
     this.city = city;
     this.country = country;
     this.temp = temp;
     this.clouds = clouds;
+    this.dateTime = dateTime;
   }
 
   public String getCity() {
@@ -22,12 +27,16 @@ public class ForecastDto {
     return country;
   }
 
-  public int getTemp() {
+  public double getTemp() {
     return temp;
   }
 
   public int getClouds() {
     return clouds;
+  }
+
+  public LocalDateTime getDateTime() {
+    return dateTime;
   }
 
   @Override
@@ -37,6 +46,7 @@ public class ForecastDto {
         ", country='" + country + '\'' +
         ", temp=" + temp +
         ", clouds=" + clouds +
+        ", dateTime=" + dateTime +
         '}';
   }
 
@@ -44,8 +54,9 @@ public class ForecastDto {
 
     private String city;
     private String country;
-    private int temp;
+    private double temp;
     private int clouds;
+    private LocalDateTime dateTime;
 
     public ForecastDtoBuilder city(String city) {
       this.city = city;
@@ -57,7 +68,7 @@ public class ForecastDto {
       return this;
     }
 
-    public ForecastDtoBuilder temp(int temp) {
+    public ForecastDtoBuilder temp(double temp) {
       this.temp = temp;
       return this;
     }
@@ -67,8 +78,13 @@ public class ForecastDto {
       return this;
     }
 
+    public ForecastDtoBuilder dateTime(LocalDateTime dateTime) {
+      this.dateTime = dateTime;
+      return this;
+    }
+
     public ForecastDto createForecastDto() {
-      return new ForecastDto(city, country, temp, clouds);
+      return new ForecastDto(city, country, temp, clouds, dateTime);
     }
   }
 }

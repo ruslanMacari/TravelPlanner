@@ -35,7 +35,7 @@ public class TripController {
     if (!redirectHandler.isRedirect(model)) {
       model.addAttribute(TRIP_ATTRIBUTE, new TripDto(LocalDate.now()));
     }
-    model.addAttribute(FORECASTS_ATTRIBUTE, tripFacade.getForecasts());
+    model.addAttribute(FORECASTS_ATTRIBUTE, tripFacade.getAllForecasts());
     return "list";
   }
 
@@ -50,7 +50,7 @@ public class TripController {
       redirectHandler.addModelToRedirectAttributes(model, redirectAttributes);
       return "redirect:/trips";
     }
-    //tripFacade.add(tripDto);
+    tripFacade.addForecast(tripDto);
     return "redirect:/trips";
   }
 

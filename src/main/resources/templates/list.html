@@ -37,8 +37,9 @@
             <div class="table__cell table__cell_head">#</div>
             <div class="table__cell table__cell_head">City Name</div>
             <div class="table__cell table__cell_head">Country Code</div>
-            <div class="table__cell table__cell_head">Temperature</div>
-            <div class="table__cell table__cell_head">Clouds</div>
+            <div class="table__cell table__cell_head">Date</div>
+            <div class="table__cell table__cell_head">Temperature, °C</div>
+            <div class="table__cell table__cell_head">Clouds, %</div>
         </div>
     </div>
     <div class="table__body">
@@ -47,6 +48,7 @@
                 <div class="table__cell" th:text="${it.count}"/>
                 <div class="table__cell" th:text="${forecast.city}"/>
                 <div class="table__cell" th:text="${forecast.country}"/>
+                <div class="table__cell" th:text="${forecast.dateTime}"/>
                 <div class="table__cell" th:text="${forecast.temp}"/>
                 <div class="table__cell" th:text="${forecast.clouds}"/>
             </div>
